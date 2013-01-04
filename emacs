@@ -1,4 +1,8 @@
 ;; set the default text coding system
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
+(setq indent-line-function 'insert-tab)
+
 (setq default-buffer-file-coding-system 'utf-8)
 
 (prefer-coding-system 'utf-8)
@@ -18,6 +22,13 @@
 
 (el-get 'sync)
 
+;; undo-tree
 (add-to-list 'load-path "~/.emacs.d/el-get/undo-tree")
 (require 'undo-tree)
 (global-undo-tree-mode)
+
+;;erlware
+(add-to-list 'load-path "~/.emacs.d/el-get/erlware-mode")
+(setq erlang-man-root-dir "/usr/lib/man")
+(setq exec-path (cons "/usr/local/bin" exec-path))
+(require 'erlang-start)
